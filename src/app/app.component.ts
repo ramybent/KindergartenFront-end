@@ -20,10 +20,7 @@ export class AppComponent implements OnInit {
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
-      this.role = user.role;
 
-      this.showAdminBoard = this.role.includes('ADMIN');
-      this.showModeratorBoard = this.role.includes('ROLE_MODERATOR');
 
       this.username = user.username;
     }

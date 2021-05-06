@@ -20,6 +20,9 @@ export class PublicationService {
     return this.http.delete("http://localhost:9130/api/Publication/deletePublication/"+id);
   }
 
+  public doAddreact(publication){
+    return this.http.post("http://localhost:9130/api/Publication/addPublication",publication,{responseType:'text' as 'json'});
+  }
 
 
 

@@ -1,10 +1,14 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="form-group">
-  <label for="description">description</label>
+  <label for="description">What's on you mind </label>
   <input
     type="text"
     class="form-control"
@@ -13,43 +17,41 @@
     #description="ngModel"
   />
   <div class="form-group">
-    <button class="btn btn-primary btn-block" (click)="add()">Sign Up</button>
+    <button class="btn btn-primary" (click)="add()">Post</button>
   </div>
+  <div class="py-4">
+    <h5 class="mb-3">Recent posts</h5>
+    <tr *ngFor="let publication of publications">
 
-
-
-
-  
-<div class="container">
-    <div class="row col-md-6 col-md-offset-2 custyle">
-    <table class="table table-striped custab">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Description</th>
-            <th>VoteCount</th>
-
-        </tr>
-    </thead>
-    
-    <tbody>
-        <tr *ngFor="let publication of publications">
-            <td>{{publication.id}}</td>
-            <td>{{publication.description}}</td>
-            <td>{{publication.voteCount}}</td>
-
-
-            <td class="text-center">
-                <button class="btn btn-danger btn-xs" (click)="deltePub(publication.id)">
-                    <span class="glyphicon glyphicon-remove">
-                        
-                    </span> Delete</button></td>
-          </tr>
-    </tbody>
-    </table>
-
+    <div class="p-4 bg-light rounded shadow-sm">
+        <p class="font-italic mb-0">{{publication.description}}</p>
+        <button class="btn btn-danger btn-xs" (click)="deltePub(publication.id)">
+          <span class="glyphicon glyphicon-remove">
+              
+          </span> Delete</button>
+        <ul class="list-inline small text-muted mt-3 mb-0">
+            <li class="list-inline-item"><i class="fa fa-comment-o mr-2"></i>0 Comments</li>
+            <button class="social-like" >
+              <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
+              <span class="count" >{{publication.voteCount}}</span>
+          </button>
+             &nbsp;
+          <button class="social-dislike" >
+              <span class="dislike" >{{publication.voteCount}}</span>
+              <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
+         </button>
+         
+            
+        </ul>
     </div>
 </div>
+</div>
+
+
+
+
+
+
 
 
 
