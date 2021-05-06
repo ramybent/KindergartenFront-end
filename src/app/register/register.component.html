@@ -1,4 +1,8 @@
-    <form
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+   
+   <form
       *ngIf="!isSuccessful"
       name="form"
       (ngSubmit)="f.form.valid && onSubmit()"
@@ -29,15 +33,7 @@
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input
-          type="email"
-          class="form-control"
-          name="email"
-          [(ngModel)]="form.email"
-          required
-          email
-          #email="ngModel"
-        />
+        <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email #email="ngModel" />
         <div class="alert-danger" *ngIf="f.submitted && email.invalid">
           <div *ngIf="email.errors.required">Email is required</div>
           <div *ngIf="email.errors.email">
@@ -62,18 +58,46 @@
             Password must be at least 6 characters
           </div>
         </div>
-      </div>
+        
+
+
+
+
+
+
+        <div class="form-group">
+          <label for="phoneNumber">PhoneNumber</label>
+          <input
+            type="phoneNumber"
+            class="form-control"
+            name="phoneNumber"
+            [(ngModel)]="form.phoneNumber"
+            #phoneNumber="ngModel" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="birthday">Birthday</label>
+
+            
+              <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="phoneNumber"
+              [(ngModel)]="form.birthday" #birthday="ngModel"
+              
+               >
+            </div>
+          
+
+
       <div class="form-group">
         <button class="btn btn-primary btn-block">Sign Up</button>
       </div>
 
       <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-        Your registration is successful!<br />{{ errorMessage }}
+        Your registration is successful please check your email to verify your account !<br />{{ errorMessage }}
       </div>
   
     </form>
 
     <div class="alert alert-success" *ngIf="isSuccessful">
-      Your registration is successful!
+      Your registration is successful! please check your email to verify your account
     </div>
 

@@ -33,6 +33,7 @@ import { PublicationComponent } from './publication/publication.component';
     FormsModule,
     HttpClientModule
 
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

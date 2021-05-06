@@ -3,20 +3,23 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
+<div class="form-group">
+  <label for="description">description</label>
+  <input
+    type="text"
+    class="form-control"
+    name="description"
+    [(ngModel)]="publication.description"
+    #description="ngModel"
+  />
+  <div class="form-group">
+    <button class="btn btn-primary btn-block" (click)="add()">Sign Up</button>
+  </div>
 
-<div class="container">
-    <div class="row">
-               <div id="custom-search-input">
-                                <div class="input-group col-md-12" style="text-align: center">
-                                    <input type="text" class="search-query form-control" placeholder="Search With Email Address"  name="email" [(ngModel)]="email"/>
-                                    <span class="input-group-btn">
-                                      
-                                    </span>
-                                </div>
-                            </div>
-    </div>
-    </div>
-<div class="container">
+
+
+
+  
 <div class="container">
     <div class="row col-md-6 col-md-offset-2 custyle">
     <table class="table table-striped custab">
@@ -25,13 +28,17 @@
             <th>Id</th>
             <th>Description</th>
             <th>VoteCount</th>
+
         </tr>
     </thead>
+    
     <tbody>
         <tr *ngFor="let publication of publications">
             <td>{{publication.id}}</td>
             <td>{{publication.description}}</td>
             <td>{{publication.voteCount}}</td>
+
+
             <td class="text-center">
                 <button class="btn btn-danger btn-xs" (click)="deltePub(publication.id)">
                     <span class="glyphicon glyphicon-remove">
@@ -40,7 +47,9 @@
           </tr>
     </tbody>
     </table>
+
     </div>
 </div>
+
 
 
