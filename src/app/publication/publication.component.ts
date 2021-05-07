@@ -10,7 +10,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 })
 export class PublicationComponent implements OnInit {
   publication= new Publication("", "", 0) ;
-
+  public publicationn :Publication;
   publications:any;
   email:string;
   isLoggedIn = false;
@@ -21,6 +21,7 @@ export class PublicationComponent implements OnInit {
   next : false
           }
  message:any;
+ id: number;
 
 
   constructor(private service:PublicationService,private tokenStorage: TokenStorageService) { }
@@ -31,7 +32,24 @@ public deltePub(id:number){
  resp.subscribe((data)=>this.publications=data);
  window.location.reload();
 }
-  
+public Addreactpub(id:number){
+  let resp= this.service.doAddreact(id);
+  resp.subscribe((data)=>this.publications=data);
+  window.location.reload();
+ }
+ 
+ public updateEmployee(id:number , publicationn: Publication) {
+  this.service.updatePublication(id,publicationn)
+    .subscribe(data => {
+      console.log(data);
+      this.publicationn = new Publication("","",0);
+    }, error => console.log(error));
+}
+
+
+
+
+
 
   ngOnInit() {
     if (this.tokenStorage.getUser()) {

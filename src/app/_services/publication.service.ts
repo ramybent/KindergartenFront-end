@@ -1,6 +1,7 @@
 import { Publication } from './../publication';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,13 @@ export class PublicationService {
     return this.http.post("http://localhost:9130/api/Publication/addPublication",publication,{responseType:'text' as 'json'});
   }
 
+  public AddreactPublication(idp) {
+    return this.http.post("http://localhost:9130/api/Publication/addReactToPublication/"+idp,{responseType:'text' as 'json'});
+  }
 
-
+  public updatePublication(id: number, value: any): Observable<Object> {
+    return this.http.put("http://localhost:9130/api/Publication/updatePublication/"+id, value);
+  }
 
 
 }

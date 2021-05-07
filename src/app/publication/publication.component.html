@@ -25,13 +25,29 @@
 
     <div class="p-4 bg-light rounded shadow-sm">
         <p class="font-italic mb-0">{{publication.description}}</p>
+        
         <button class="btn btn-danger btn-xs" (click)="deltePub(publication.id)">
+          
           <span class="glyphicon glyphicon-remove">
               
           </span> Delete</button>
+          <form #editForm="ngForm">
+            <div class="form-group">
+              <label for="description">description</label>
+              <input type="text" ngModel="{{publicationn?.description}}" name="description" class="form-control" id="description" placeholder="description" required>
+            </div>
+  
+            <div class="modal-footer">
+              <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+              <button (click)="updateEmployee(publication.id,editForm.value)" data-dismiss="modal" class="btn btn-primary" [disabled]="editForm.invalid" >Save changes
+              </button>
+            </div>
+          </form>
+  
+
         <ul class="list-inline small text-muted mt-3 mb-0">
             <li class="list-inline-item"><i class="fa fa-comment-o mr-2"></i>0 Comments</li>
-            <button class="social-like" >
+            <button class="social-like" (click)="Addreactpub(publication.id)" >
               <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
               <span class="count" >{{publication.voteCount}}</span>
           </button>
@@ -45,6 +61,8 @@
         </ul>
     </div>
 </div>
+
+
 </div>
 
 
