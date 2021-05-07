@@ -43,6 +43,8 @@ public Addreactpub(id:number){
     .subscribe(data => {
       console.log(data);
       this.publicationn = new Publication("","",0);
+      window.location.reload();
+
     }, error => console.log(error));
 }
 
