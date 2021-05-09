@@ -1,7 +1,17 @@
-<p>bill works!</p>
-<tbody>
-<tr *ngFor="let u of bills">
-  <th scope="row">{{u.id_bill}}</th>
-  <td>{{u.discount}}</td>
-</tr>
-</tbody>
+<div class="container p-5 ">
+  <div class="row justify-content-around">
+    <div *ngFor="let bill of bills" class="card border-primary mb-3" style="max-width: 18rem;">
+      <div class="card-body text-primary">
+        <h5 class="card-title">Id: {{bill?.id_bill}}</h5>
+        <h6 class="card-title">Date: {{bill?.date_bill}}</h6>
+        <h6 class="card-title">Number month: {{bill?.nbrs_month}}</h6>
+        <h6 class="card-title">Discount: {{bill?.discount}}</h6>
+        <h6 class="card-title">Tax: {{bill?.tax}}</h6>
+        <h6 class="card-title">Total Costs: {{bill?.total_costs}}</h6>
+        <button type="button" name="" class="btn btn-primary mr-2" (click)="generatePDF('download',bill)">Download</button>
+        <button type="button" name="" class="btn btn-primary "(click)="generatePDF('open',bill)">Open</button>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -5,6 +5,7 @@ import {ProfilParentComponent} from './parent/profil-parent/profil-parent.compon
 import {HomeComponent} from './parent/home/home.component';
 import {ChildrenComponent} from './parent/children/children.component';
 import {BillComponent} from './parent/bill/bill.component';
+import {ListKindergartenComponent} from './parent/list-kindergarten/list-kindergarten.component';
 
 
 const routes: Routes = [{
@@ -12,7 +13,8 @@ const routes: Routes = [{
     {path: 'profile', component: ProfilParentComponent},
   {path: 'home', component: HomeComponent},
   {path: 'children', component: ChildrenComponent},
-  {path: 'bill', component: BillComponent}
+  {path: 'bill', component: BillComponent},
+  {path: 'listKindergarten', component: ListKindergartenComponent}
 ];
 
 @NgModule({

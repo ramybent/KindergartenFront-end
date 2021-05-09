@@ -3,10 +3,10 @@ export interface Bill {
   id_bill: number;
   date_bill: string;
   discount: number;
-  Nbrs_month: number;
+  nbrs_month: number;
   total_costs: number;
   tax: number;
   Payment: string;
-  Parent: number;
+  Parent: Parent;
   Kindergarten: any;
 }

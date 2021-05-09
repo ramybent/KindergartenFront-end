@@ -1,0 +1,54 @@
+<div class="container float-left" id="main-containers2">
+  <div class="container p-5 ">
+    <div class="row justify-content-around">
+      <div *ngFor="let us of kindergartens" class="card border-primary mb-3" style="max-width: 18rem;">
+        <div class="card-body text-primary">
+          <h5 class="card-title">Title: {{us?.name}}</h5>
+          <h6 class="card-title">Description: {{us?.description}}</h6>
+          <h6 class="card-title">Address: {{us?.address}}</h6>
+          <h6 class="card-title">Price Month: {{us?.price_month}}</h6>
+          <h6 class="card-title">Discount: {{us?.discount*100}}%</h6>
+        </div>
+          <a (click)="onOpenModal2(us, 'join')" class="btn btn-primary tooltips m-3" data-placement="top" data-original-title="Edit">Join Our Kindergarten <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="JoinModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="JoinModalLabel">Join Our kindergarten {{kindergartenJoin?.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm">
+          <div class="form-group">
+            <label>Give id of your children</label>
+            <input type="number" [(ngModel)]="ChildrenId" name="ChildrenId" class="form-control" id="idChildren" aria-describedby="idChildren" placeholder="idChildren" required>
+          </div>
+          <div class="form-group">
+            <label>Give Month subscribe</label>
+            <input type="number"  [(ngModel)]="Month" name="Month" class="form-control" id="Month" aria-describedby="Month" placeholder="Month" required>
+          </div>
+          <div *ngFor="let us of parent.child" class="card border-primary mb-3" style="max-width: 18rem;">
+
+            <div class="card-body text-primary" *ngIf="!us?.subscribe">
+              <h5 class="card-title">firstName: {{us?.firstname}}</h5>
+              <h6 class="card-title">ID: {{us?.id_child}}</h6>
+      
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+            <button  (click)="onJoinKindergartens(kindergartenJoin.id,parentId,Month,ChildrenId)" data-dismiss="modal" class="btn btn-primary" [disabled]="editForm.invalid">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

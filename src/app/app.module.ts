@@ -10,6 +10,7 @@ import { HomeComponent } from './parent/home/home.component';
 import {FormsModule} from '@angular/forms';
 import { ChildrenComponent } from './parent/children/children.component';
 import { BillComponent } from './parent/bill/bill.component';
+import { ListKindergartenComponent } from './parent/list-kindergarten/list-kindergarten.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BillComponent } from './parent/bill/bill.component';
     ProfilParentComponent,
     HomeComponent,
     ChildrenComponent,
-    BillComponent
+    BillComponent,
+    ListKindergartenComponent
   ],
   imports: [
     BrowserModule,
