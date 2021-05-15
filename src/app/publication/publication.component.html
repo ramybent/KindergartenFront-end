@@ -6,7 +6,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <!------ Include the above in your HEAD tag ---------->
-
+<div>
 <div class="form-group">
   <label for="description">What's on you mind </label>
   <input
@@ -32,12 +32,48 @@
           <span class="glyphicon glyphicon-remove">
               
           </span> Delete</button>
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="vertical-alignment-helper">
+                <div class="modal-dialog vertical-align-center">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                          
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        
+                            </button>
+                             <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        
+                        </div>
+                        <div class="modal-body">
+                          
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <form #editFormm="ngForm">
+                              <div class="form-group">
+                                <label for="description">Add comment</label>
+                                <input type="text" ngModel="{{comment.text}}" name="description" class="form-control" id="description" placeholder="description" required>
+                              </div>
+                    
+                            <button (click)="addcommenttopublication(publication.id,editFormm.value)" data-dismiss="modal" class="btn btn-primary" [disabled]="editFormm.invalid" >Save changes </button>
+                          </form>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+          <div class="modal-footer">
+            <button (click)="updatePublication(publication.id,editForm.value)" data-dismiss="modal" class="btn btn-primary" [disabled]="editForm.invalid" >Save changes
+            </button>
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Launch demo modal</button>
           
-  
+          </div>
+
 
         <ul class="list-inline small text-muted mt-3 mb-0">
           
-            <li class="list-inline-item"><i class="fa fa-comment-o mr-2"></i>0 Comments</li>
             <button class="social-like" (click)="Addreactpub(publication.id)" >
               <span class="like"><i class="glyphicon glyphicon-thumbs-up"></i></span>
               <span class="count" >{{publication.voteCount}}</span>
@@ -49,18 +85,15 @@
          </button>
          <form #editForm="ngForm">
           <div class="form-group">
-            <label for="description">description</label>
+            <label for="description">update Publication</label>
             <input type="text" ngModel="{{publicationn?.description}}" name="description" class="form-control" id="description" placeholder="description" required>
           </div>
 
-          <div class="modal-footer">
-            <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-            <button (click)="updateEmployee(publication.id,editForm.value)" data-dismiss="modal" class="btn btn-primary" [disabled]="editForm.invalid" >Save changes
-            </button>
-          </div>
+
         </form>
             
         </ul>
+        
     </div>
 </div>
 
@@ -69,6 +102,7 @@
 
 
 
+  
 
 
 

@@ -1,3 +1,4 @@
+import { Comment } from './../comment';
 import { Publication } from './../publication';
 import { Component, OnInit } from '@angular/core';
 import { PublicationService } from '../_services/publication.service';
@@ -10,8 +11,11 @@ import { TokenStorageService } from '../_services/token-storage.service';
 })
 export class PublicationComponent implements OnInit {
   publication= new Publication("", "", 0) ;
+  comment=new Comment("");
   public publicationn :Publication;
+
   publications:any;
+  commentt:any;
   email:string;
   isLoggedIn = false;
   description :''
@@ -38,11 +42,21 @@ public Addreactpub(id:number){
   window.location.reload();
  }
  
- public updateEmployee(id:number , publicationn: Publication) {
+ public updatePublication(id:number , publicationn: Publication) {
   this.service.updatePublication(id,publicationn)
     .subscribe(data => {
       console.log(data);
       this.publicationn = new Publication("","",0);
+      window.location.reload();
+
+    }, error => console.log(error));
+}
+public addcommenttopublication(id:number , comment: Comment) {
+  this.comment = new Comment("");
+  this.service.addcommentPublication(id,comment)
+
+    .subscribe(data => {
+      console.log(data);
       window.location.reload();
 
     }, error => console.log(error));
@@ -58,6 +72,8 @@ public Addreactpub(id:number){
       this.isLoggedIn = true }
 
     let resp=this.service.getPublication();
+    let respp=this.service.getComment();
+    respp.subscribe((data)=>this.commentt=data)
     resp.subscribe((data)=>this.publications=data);}
 
 

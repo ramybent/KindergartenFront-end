@@ -16,6 +16,9 @@ export class PublicationService {
   public getPublication(){
     return this.http.get("http://localhost:9130/api/Publication/getallpublication");
   }
+  public getComment(){
+    return this.http.get("http://localhost:9130/api/Publication/getcomment");
+  }
 
   public deletepub(id){
     return this.http.delete("http://localhost:9130/api/Publication/deletePublication/"+id);
@@ -31,6 +34,9 @@ export class PublicationService {
 
   public updatePublication(id: number, value: any): Observable<Object> {
     return this.http.put("http://localhost:9130/api/Publication/updatePublication/"+id, value);
+  }
+  public addcommentPublication(id: number, value: any): Observable<Object> {
+    return this.http.post("http://localhost:9130/api/Publication/addcomemntToPublication/"+id, value);
   }
 
 
