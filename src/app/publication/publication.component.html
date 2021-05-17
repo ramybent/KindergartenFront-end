@@ -49,14 +49,12 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <form #editFormm="ngForm">
                               <div class="form-group">
                                 <label for="description">Add comment</label>
                                 <input type="text" ngModel="{{comment.text}}" name="description" class="form-control" id="description" placeholder="description" required>
                               </div>
                     
-                            <button (click)="addcommenttopublication(publication.id,editFormm.value)" data-dismiss="modal" class="btn btn-primary" [disabled]="editFormm.invalid" >Save changes </button>
-                          </form>
+                            <button (click)="addcommenttopublication(publication.id,editForm.value)" data-dismiss="modal" class="btn btn-primary" [disabled]="editForm.valid" >Save changes </button>
         
                         </div>
                     </div>
@@ -67,7 +65,7 @@
           <div class="modal-footer">
             <button (click)="updatePublication(publication.id,editForm.value)" data-dismiss="modal" class="btn btn-primary" [disabled]="editForm.invalid" >Save changes
             </button>
-            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Launch demo modal</button>
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Add Comment</button>
           
           </div>
 

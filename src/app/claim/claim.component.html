@@ -1,0 +1,30 @@
+<div>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id Claim</th>
+        <th scope="col">Object</th>
+        <th scope="col">Description</th>
+
+        <th scope="col">Type</th>
+        <th scope="col">State</th>
+
+      </tr>
+
+    </thead>
+    
+    <tbody>
+        <tr *ngFor="let claim of claims">
+
+        <td>{{claim.id}}</td>
+        <td>{{claim.object}}</td>
+        <td>{{claim.description}}</td>
+        <td>{{claim.type}}</td>
+        <td>{{claim.state}}</td>
+        <button type="button" class="btn btn-success" (click)="changestate(claim.id)">Change State to closing</button>
+      </tr>
+
+    </tbody>
+
+  </table>
+</div>

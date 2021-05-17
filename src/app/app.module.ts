@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { PublicationComponent } from './publication/publication.component';
+import { ClaimComponent } from './claim/claim.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PublicationComponent } from './publication/publication.component';
     LoginComponent,
     ProfileComponent,
     RegisterComponent,
-    PublicationComponent
+    PublicationComponent,
+    ClaimComponent
   ],
   imports: [
     BrowserModule,

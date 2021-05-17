@@ -1,3 +1,5 @@
+import { Claim } from './../claim';
+import { Comment } from './../comment';
 import { Publication } from './../publication';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -35,9 +37,18 @@ export class PublicationService {
   public updatePublication(id: number, value: any): Observable<Object> {
     return this.http.put("http://localhost:9130/api/Publication/updatePublication/"+id, value);
   }
-  public addcommentPublication(id: number, value: any): Observable<Object> {
-    return this.http.post("http://localhost:9130/api/Publication/addcomemntToPublication/"+id, value);
+  public addcommentPublication(id: number, Comment: Comment): Observable<Object> {
+    return this.http.post("http://localhost:9130/api/Publication/addcomemntToPublication/"+id, Comment,{responseType:'text' as 'json'});
+  }
+  public doAddclaim(claim){
+    return this.http.post("http://localhost:9130/api/Publication/addPublication",claim,{responseType:'text' as 'json'});
+  }
+  public getclaim(){
+    return this.http.get("http://localhost:9130/api/Publication/getallclaim");
+  }
+  public changestateclaim(id){
+    return this.http.get("http://localhost:9130/api/Admin/ChangeStateClaim/"+id);
   }
 
-
+  
 }

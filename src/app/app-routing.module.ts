@@ -1,3 +1,4 @@
+import { ClaimComponent } from './claim/claim.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -18,6 +19,8 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'publication', component: PublicationComponent },
   { path: 'mod', component: BoardModerateurComponent },
+  { path: 'claim', component: ClaimComponent },
+
   { path: 'admin', component: BoardAdminComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

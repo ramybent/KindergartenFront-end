@@ -33,4 +33,9 @@ export class AuthService {
 
     }, httpOptions);
   }
+  get(): Observable<any> {
+    return this.http.get("http://localhost:9130/api/Admin/alluser", {
+
+    }, );
+  }
 }

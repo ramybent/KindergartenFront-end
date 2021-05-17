@@ -15,5 +15,4 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.currentUser = this.token.getUser();
   }
-  
 }

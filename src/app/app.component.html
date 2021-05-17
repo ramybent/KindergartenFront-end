@@ -1,3 +1,4 @@
+
 <div id="app">
   <nav class="navbar navbar-expand navbar-dark bg-dark">
     <a href="#" class="navbar-brand">   <img src="/assets/logo.png">
@@ -16,6 +17,10 @@
       <li class="nav-item">
         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
       </li>
+      <li class="nav-item">
+        <a href="/claim" class="nav-link" *ngIf="isLoggedIn" routerLink="claim">Claim</a>
+      </li>
+
       <li class="nav-item">
         <a href="/publication" class="nav-link" *ngIf="isLoggedIn" routerLink="publication">publication</a>
       </li>
