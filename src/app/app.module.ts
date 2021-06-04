@@ -11,6 +11,15 @@ import {FormsModule} from '@angular/forms';
 import { ChildrenComponent } from './parent/children/children.component';
 import { BillComponent } from './parent/bill/bill.component';
 import { ListKindergartenComponent } from './parent/list-kindergarten/list-kindergarten.component';
+import { ListParentComponent } from './parent/list-parent/list-parent.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableExporterModule } from 'mat-table-exporter';
 
 @NgModule({
   declarations: [
@@ -20,13 +29,22 @@ import { ListKindergartenComponent } from './parent/list-kindergarten/list-kinde
     HomeComponent,
     ChildrenComponent,
     BillComponent,
-    ListKindergartenComponent
+    ListKindergartenComponent,
+    ListParentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableExporterModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

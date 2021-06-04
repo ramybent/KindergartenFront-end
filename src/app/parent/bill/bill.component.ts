@@ -4,6 +4,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {Bill} from '../../model/bill';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
@@ -13,6 +14,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 export class BillComponent implements OnInit {
   public bills: Bill[];
+
   constructor(private billService: BillService) {
   }
 
@@ -77,21 +79,21 @@ export class BillComponent implements OnInit {
               {
                 table: {
                   headerRows: 1,
-                  widths: ['*', 'auto', 'auto', 'auto','auto','auto'],
+                  widths: ['*', 'auto', 'auto', 'auto', 'auto', 'auto'],
                   body: [
                     ['ID', 'Date', 'nbrs Month', 'TAX', 'Discount', 'Total Costs'],
-                    [bill.id_bill, bill.date_bill, bill.nbrs_month, bill.tax, bill.discount, bill.total_costs]
+                    [bill.id_bill, bill.date_bill, bill.nbrs_month, bill.tax * 100+'%', bill.discount * 100+'%', bill.total_costs]
                   ],
                   columns: [
-                    [{ qr: `${bill.id_bill}`, fit: '50' }],
-                    [{ text: 'Signature', alignment: 'right', italics: true }],
+                    [{qr: `${bill.id_bill}`, fit: '50'}],
+                    [{text: 'Signature', alignment: 'right', italics: true}],
                   ]
                 }
               }
             ]
           ]
         },
-      ],styles: {
+      ], styles: {
         sectionHeader: {
           bold: true,
           decoration: 'underline',
@@ -103,8 +105,7 @@ export class BillComponent implements OnInit {
 
     if (action === 'download') {
       pdfMake.createPdf(docDefinition).download();
-    }
-    else {
+    } else {
       pdfMake.createPdf(docDefinition).open();
     }
 

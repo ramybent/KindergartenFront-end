@@ -1,34 +1,76 @@
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" style="color:white;" routerLink="/home"> <img class="card-img-top btn-sm" src="/assets/img/parentspace/logo.png"></a>
+<!--
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #557FEB;">
+  <a class="navbar-brand" style="color:white;" routerLink="/home"> <img class="card-img-top w-auto" src="/assets/img/parentspace/LOGO%206.png"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
           aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarColor02">
+  <div class="collapse navbar-collapse "  id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/profile">Profile</a>
+        <a class="nav-link h5" routerLink="/profile">Profile</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/children">Children</a>
+        <a class="nav-link h5" routerLink="/children">Children</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/listKindergarten">List kindergarten</a>
+        <a class="nav-link h5" routerLink="/listKindergarten">List kindergarten</a>
       </li>
       <li class="nav-item " routerLinkActive="active">
-        <a class="nav-link" routerLink="#">List Parents</a>
+        <a class="nav-link h5" routerLink="/listParent">List Parents</a>
       </li>
       <li class="nav-item  " routerLinkActive="active">
-        <a class="nav-link  " routerLink="/bill">Bill</a>
+        <a class="nav-link  h5" routerLink="/bill">Bill</a>
       </li>
-      <li class="nav-item " routerLinkActive="active">
-        <a class="nav-link  " routerLink="#">Disconnect</a>
+    </ul>
+    <ul class="navbar-nav d-flex flex-row me-1">
+      <li class="nav-item  float-left" routerLinkActive="active" >
+        <a class="nav-link  h5" routerLink="#">Disconnect</a>
       </li>
     </ul>
   </div>
 </nav>
-<router-outlet></router-outlet>
+ -->
 
+<header id="mu-hero">
+    <nav class="navbar navbar-expand-lg navbar-light mu-navbar" >
+      <a class="navbar-brand mu-logo"   > <img   src="/assets/img/parentspace/LOGO%206.png" alt="logo"></a>
 
+      <!-- image based logo -->
+      <!-- <a class="navbar-brand mu-logo" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="fa fa-bars"></span>
+      </button>
 
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mu-navbar-nav" >
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/home">Home</a>
+          </li>
+          <li class="nav-item"  routerLinkActive="active"><a routerLink="/profile" >Profile</a></li>
+          <li class="nav-item"  routerLinkActive="active"><a  routerLink="/children">Children</a></li>
+          <li class="nav-item"  routerLinkActive="active"><a routerLink="/bill">Bill</a></li>
+          <li class="nav-item dropdown" >
+            <a class="dropdown-toggle"  role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="/listKindergarten">Kindergarten</a>
+              <a class="dropdown-item" routerLink="/listParent">Parent</a>
+              <a class="dropdown-item" href="#">Event</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="dropdown-toggle"  role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Contact us</a>
+            <a class="dropdown-item" href="#">About us</a>
+            <a class="dropdown-item" href="#">Disconnect</a>
+           </div>
+           </li>
+        </ul>
+      </div>
+    </nav>
+</header>
+
+<div class="container w-100">
+  <router-outlet></router-outlet>
+</div>

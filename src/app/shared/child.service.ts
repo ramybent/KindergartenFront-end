@@ -27,4 +27,7 @@ export class ChildService {
   public putChildren(childid: number,children: Child ): Observable<void> {
     return this.http.put<void>(`http://localhost:8082/springMVC/servlet/modify-child/${childid}`,children);
   }
+  public unsubscribeChildren(childid: number): Observable<void> {
+    return this.http.put<void>(`http://localhost:8082/springMVC/servlet/unsubscribeChild/${childid}`,childid);
+  }
 }

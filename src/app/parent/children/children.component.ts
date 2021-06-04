@@ -16,8 +16,10 @@ export class ChildrenComponent implements OnInit {
   public children: Child[];
   public deleteChildren: Child;
   public modifyChildren: Child;
+  public unsubscribeChildren: Child;
   public parent: Parent;
   public idparent: number;
+  public id: number;
 
   constructor(private childService: ChildService,
               private parentservice: ParentService) {
@@ -26,6 +28,8 @@ export class ChildrenComponent implements OnInit {
   ngOnInit(): void {
     this.idparent = 1;
     this.onGetParent(this.idparent);
+
+
   }
 
   public onGetParent(parentId: number): void {
@@ -33,12 +37,28 @@ export class ChildrenComponent implements OnInit {
     this.parentservice.getParent(parentId).subscribe(
       (response: Parent) => {
         this.parent = response;
+        this.children = this.parent.child;
         console.log(response);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
     );
+  }
+
+  public searchChild(key: string): void {
+
+    const results: Child[] = [];
+    for (const children of this.parent.child) {
+      if (children.lastname.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        || children.firstname.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(children);
+      }
+    }
+    this.children = results;
+    if (results.length === 0 || !key) {
+      this.onGetParent(this.idparent);
+    }
   }
 
   public onAddChildren(addForm: NgForm): void {
@@ -79,6 +99,17 @@ export class ChildrenComponent implements OnInit {
       }
     );
   }
+  public onUnsubscribeChildren(id: number): void {
+    this.childService.unsubscribeChildren(id).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.onGetParent(this.idparent);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
 
   public onOpenModal(children: Child, mode: string): void {
     const container = document.getElementById('main-containers');
@@ -97,7 +128,12 @@ export class ChildrenComponent implements OnInit {
       this.deleteChildren = children;
       button.setAttribute('data-target', '#deleteChildrenModal');
     }
+    if (mode === 'unsubscribe') {
+      this.unsubscribeChildren = children;
+      button.setAttribute('data-target', '#UnsubscribeChildrenModal');
+    }
     container.appendChild(button);
     button.click();
   }
+
 }

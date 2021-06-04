@@ -1,0 +1,30 @@
+ <div class="container p-5 shadow-lg">
+   <h2 class="h2 text-center pb-3 ">Check The List of Parents</h2>
+   <div class="table-responsive">
+     <table class="table table-hover  shadow-sm" >
+       <thead class="thead-light">
+       <tr>
+         <th scope="col">ID</th>
+         <th scope="col">FirstName</th>
+         <th scope="col">LastName</th>
+         <th scope="col">Email</th>
+         <th scope="col">Address</th>
+         <th scope="col">Interacts</th>
+       </tr>
+       </thead>
+       <tbody  *ngFor="let parent of parents">
+       <tr *ngIf="parent.id != parentId">
+         <th scope="row">{{parent?.id}}</th>
+         <td>{{parent?.firstName}}</td>
+         <td>{{parent?.lastName}}</td>
+         <td>{{parent?.email}}</td>
+         <td>{{parent?.address}}</td>
+         <td>
+           <button type="button" name="" class="btn btn-outline-primary mr-2" >Send message</button>
+           <button type="button" name="" class="btn btn-outline-danger">Block</button>
+         </td>
+       </tr>
+       </tbody>
+     </table>
+   </div>
+ </div>

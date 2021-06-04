@@ -42,6 +42,19 @@ export class ListKindergartenComponent implements OnInit {
       }
     );
   }
+  public searchKindergarten(key: string): void {
+
+    const results: Kindergarten[] = [];
+    for (const kindergarten of this.kindergartens) {
+      if (kindergarten.name.toLowerCase().indexOf(key.toLowerCase()) !== -1 || kindergarten.address.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(kindergarten);
+      }
+    }
+    this.kindergartens = results;
+    if (results.length === 0 || !key) {
+      this.onGetKindergartens();
+    }
+  }
 
   public onGetKindergartens(): void {
 

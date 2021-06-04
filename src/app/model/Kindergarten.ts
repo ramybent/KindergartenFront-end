@@ -12,6 +12,6 @@ export interface Kindergarten{
   discount: number,
   image: string,
   event: any,
-  child: Child,
+  child: Child[],
   bill: Bill
 }

@@ -1,17 +1,32 @@
-<div class="container p-5 ">
-  <div class="row justify-content-around">
-    <div *ngFor="let bill of bills" class="card border-primary mb-3" style="max-width: 18rem;">
-      <div class="card-body text-primary">
-        <h5 class="card-title">Id: {{bill?.id_bill}}</h5>
-        <h6 class="card-title">Date: {{bill?.date_bill}}</h6>
-        <h6 class="card-title">Number month: {{bill?.nbrs_month}}</h6>
-        <h6 class="card-title">Discount: {{bill?.discount}}</h6>
-        <h6 class="card-title">Tax: {{bill?.tax}}</h6>
-        <h6 class="card-title">Total Costs: {{bill?.total_costs}}</h6>
-        <button type="button" name="" class="btn btn-primary mr-2" (click)="generatePDF('download',bill)">Download</button>
-        <button type="button" name="" class="btn btn-primary "(click)="generatePDF('open',bill)">Open</button>
-      </div>
-
-    </div>
-  </div>
+ <div class="container p-5 shadow-lg">
+   <h2 class="h2 text-center pb-3 ">Check your Bill</h2>
+<div class="table-responsive">
+  <table class="table table-hover  shadow-sm" >
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Date</th>
+      <th scope="col">Number month</th>
+      <th scope="col">Discount</th>
+      <th scope="col">Tax</th>
+      <th scope="col">Total Costs</th>
+      <th scope="col">Download/Open</th>
+    </tr>
+    </thead>
+    <tbody  *ngFor="let bill of bills">
+    <tr>
+      <th scope="row">{{bill?.id_bill}}</th>
+      <td>{{bill?.date_bill}}</td>
+      <td>{{bill?.nbrs_month}}</td>
+      <td>{{bill?.discount*100}}%</td>
+      <td>{{bill?.tax*100}}%</td>
+      <td>{{bill?.total_costs}} $</td>
+      <td>
+        <button type="button" name="" class="btn btn-outline-primary mr-2" (click)="generatePDF('download',bill)">Download</button>
+        <button type="button" name="" class="btn btn-outline-primary "(click)="generatePDF('open',bill)">Open</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
+  </div>
