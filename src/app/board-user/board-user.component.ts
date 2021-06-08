@@ -1,3 +1,5 @@
+import { TokenStorageService } from './../_services/token-storage.service';
+import { UserService } from './../_services/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:UserService,private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
+
+
+    
   }
 
 }
